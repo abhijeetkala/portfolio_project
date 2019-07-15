@@ -36,7 +36,7 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Abhijeet</a>
+        <a class="navbar-brand" href="#">Abhijeet Kala</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -44,7 +44,7 @@
           <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link" href="#">Instagram</a>
             <a class="nav-item nav-link" href="#">Resume</a>
-            <a class="nav-item nav-link" href="#">Blog</a>
+            <a class="nav-item nav-link active" href="#">Blog</a>
 
           </div>
         </div>
@@ -52,37 +52,29 @@
 </header>
 
 <main role="main">
+  <div class="container">
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Hi, I'm Abhijeet.</h1>
-      <p class="lead text-muted">Hey,my name is Abhijeet kala and i am enjoying making Django websites.it's like a thrill to make and Design something of your own,that makes me more passionate about it !</p>
-      <p>
-        <a href="mailto:abhijeet2564@gmail.com" class="btn btn-primary my-2">GET IN TOUCH</a>
 
-      </p>
-    </div>
-  </section>
+<h1 class="text-center pt-4">Welcome to my Blog</h1>
+<br>
+<br>
+<h2>Latest posts</h2>
+<hr>
+<br>
 
-  <div class="album py-5 bg-light">
-    <div class="container">
+{% for blog in blogs.all %}
+<a href="#"><h3>{{blog.title}}</h3></a>
 
-      <div class="row">
+{{ blog.date_pretty }}
+<br />
 
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}" alt="">
-            <div class="card-body">
-              <p class="card-text">  {{ job.summary }}</p>
+<img class="img-fluid" src="{{ blog.image.url }}" alt="" height="300" width="250">
+<br>
 
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-
-      </div>
-    </div>
+<p>{{  blog.summary }}</p>
+<br>
+<br>
+{%  endfor  %}
   </div>
 
 </main>
